@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= Rails.application.credentials.database.username %>
+  password: <%= Rails.application.credentials.database.password %>
+
+development:
+  <<: *default
+  database: run_jotter_development
+
+test:
+  <<: *default
+  database: run_jotter_test
+
+production:
+  <<: *default
+  database: run_jotter_production
