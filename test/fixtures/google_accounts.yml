@@ -1,0 +1,9 @@
+marks_google_account:
+  user: mark
+  google_account_id: 123456789012345678901
+  email: mark@example.com
+  email_verified: true
+  picture_url:
+  first_name: Mark
+  last_name: Smith
+  locale: en

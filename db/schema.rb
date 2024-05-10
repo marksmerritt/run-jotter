@@ -10,8 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 0) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_10_140317) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "google_accounts", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.bigint "user_id", null: false
+    t.string "google_account_id", null: false
+    t.string "email", null: false
+    t.boolean "email_verified", default: false, null: false
+    t.string "picture_url"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "locale"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_google_accounts_on_email", unique: true
+    t.index ["user_id"], name: "index_google_accounts_on_user_id"
+  end
+
+  create_table "sign_ins", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "ip"
+    t.string "user_agent"
+    t.string "referer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sign_ins_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "username", null: false
+    t.string "email", null: false
+    t.datetime "email_verified_at"
+    t.string "password_digest"
+    t.string "time_zone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  add_foreign_key "google_accounts", "users"
+  add_foreign_key "sign_ins", "users"
 end
