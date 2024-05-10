@@ -1,0 +1,11 @@
+<% if @google_account.pending_verification? %>
+	<h1>It looks like you have already signed up using this email address. Enter your password to connect your Google Account</h1>
+
+	<%= form_with model: @google_account.user, url: google_account_path(@google_account) do |form| %>
+		<%= form.label :password, "Enter your password" %>
+		<%= form.password_field :password %>
+		<%= form.submit "Connect your Google Account" %>
+	<% end %>
+<% else %>
+	<h1>This google account is <%= @google_account.status.humanize %></h1>
+<% end %>

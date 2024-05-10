@@ -1,0 +1,8 @@
+mark:
+  first_name: Mark
+  last_name: Smith
+  email: mark@example.com
+  email_verified_at: <%= Time.current %>
+  password_digest: <%= BCrypt::Password.create("1Letmein!", cost: 4) %>
+  username: marks
+  time_zone: Eastern Time (US & Canada)

@@ -15,6 +15,11 @@ gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
+gem "sidekiq", "~> 7.2"
+gem "googleauth", "~> 1.9"
+gem "faker", "~> 3.2", ">= 3.2.3"
+gem "user_agent_parser", "~> 2.16"
+gem "invisible_captcha", "~> 2.2"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]

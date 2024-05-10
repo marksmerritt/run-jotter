@@ -1,0 +1,26 @@
+<h1>Enter your password to verify your email</h1>
+
+<%= form_with model: @user, url: email_verification_path(token: params[:token]) do |form| %>
+<% if form.object.errors.any? %>
+		<% form.object.errors.full_messages.each do |message| %>
+			<div><%= message %></div>
+		<% end %>
+	<% end %>
+
+	<div>
+		<%= form.label :email %>
+
+		<strong><%= @user.email %></strong>
+	</div>
+
+	<br>
+
+	<div>
+		<%= form.label :password_challenge, "Enter your Password" %>
+		<%= form.password_field :password_challenge %>
+	</div>
+
+	<div>
+		<%= form.submit "Verify email" %>
+	</div>
+<% end %>

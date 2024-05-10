@@ -1,0 +1,40 @@
+<h1>Sign Up</h1>
+
+<br>
+
+<%= form_with model: @user, url: sign_up_path, data: { turbo: false } do |form| %>
+	<%= form.invisible_captcha %>
+	<%= form.time_zone_select :time_zone, priority_time_zones, { default: browser_time_zone.name }, { class: "hidden" } %>
+	<% if form.object.errors.any? %>
+		<% form.object.errors.full_messages.each do |message| %>
+			<div><%= message %></div>
+		<% end %>
+	<% end %>
+	<%= render "identity/shared/continue_with_google" %>
+
+	<br>
+
+	<div>
+		<%= form.label :email %>
+		<%= form.email_field :email, id: "sign_up_email_field" %>
+	</div>
+
+	<br>
+
+	<div>
+		<%= form.label :password %>
+		<%= form.password_field :password, id: "sign_up_password_field" %>
+	</div>
+
+	<br>
+
+	<div>
+		<%= form.submit "Sign Up", id: "sign_up_button" %>
+	</div>
+<% end %>
+
+<br>
+
+<div>
+	<%= link_to "Sign in", sign_in_path, data: { turbo: false } %>
+</div>
