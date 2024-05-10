@@ -1,0 +1,36 @@
+:root {
+	/* Fonts */
+	--font-primary: "Inter", system-ui, sans-serif;
+
+  /* Colors */
+  --color-primary-200: #D1D3FF;
+  --color-primary-300: #8488FB;
+  --color-primary-300: #5055EF;
+  --color-primary-500: #353CF7;
+  --color-primary-600: #2C31C2;
+  --color-primary-700: #202493;
+  --color-primary-800: #171A6A;
+  --color-red-500: #E20000;
+  --color-blue-100: #D9F4FF;
+  --color-white: #fff;
+  --color-gray-10: #EAEAEB;
+  --color-gray-20: #D5D5D8;
+  --color-gray-30: #BDBDC1;
+  --color-gray-50: #8E8E95;
+  --color-gray-70: #606067;
+  --color-gray-80: #4A4A4F;
+  --color-gray-90: #343437;
+  --color-gray-100: #1D1D1F;
+  --color-border: var(--color-gray-10);
+  --color-border-dark: var(--color-gray-50);
+  --color-text: var(--color-gray-100);
+  --color-text-subdued: var(--color-gray-40);
+  --color-primary: var(--color-primary-500);
+  --color-error: var(--color-red-500);
+  --color-highlight: var(--color-blue-100);
+  --color-highlight-bg: var(--color-primary-200);
+
+	/* Spacing */
+	--marketing-nav-height: 4rem;
+
+}

@@ -1,0 +1,27 @@
+<div data-controller="slideshow" data-slideshow-active-button-class="marketing__demo-button--active" data-slideshow-hide-class="hidden">
+	<div class="marketing__demo-buttons">
+		<span class="marketing__demo-buttons-label">Explore</span>
+		<%= link_to "Planning", "#", class: "marketing__demo-button marketing__demo-button--active", data: { slideshow_target: "button", action: "slideshow#changeItem" } %>
+		<%= link_to "Logging", "#", class: "marketing__demo-button", data: { slideshow_target: "button", action: "slideshow#changeItem" } %>
+		<%= link_to "Reviewing", "#", class: "marketing__demo-button", data: { slideshow_target: "button", action: "slideshow#changeItem" } %>
+		<%= link_to "Groups", "#", class: "marketing__demo-button", data: { slideshow_target: "button", action: "slideshow#changeItem" } %>
+	</div>
+
+	<div class="marketing__demo-container">
+		<div class="marketing__demo" data-slideshow-target="item">
+			<lottie-player src="<%= asset_url('animation_placeholder_1.json') %>" background="#ffffff" speed="1" style="width: 100%; height: 100%" loop autoplay></lottie-player>
+		</div>
+
+		<div class="marketing__demo hidden" data-slideshow-target="item">
+			<lottie-player src="<%= asset_url('animation_placeholder_2.json') %>" background="#ffffff" speed="1" style="width: 100%; height: 100%" loop autoplay></lottie-player>
+		</div>
+
+		<div class="marketing__demo hidden" data-slideshow-target="item">
+			<lottie-player src="<%= asset_url('animation_placeholder_3.json') %>" background="#ffffff" speed="1" style="width: 100%; height: 100%" loop autoplay></lottie-player>
+		</div>
+
+		<div class="marketing__demo hidden" data-slideshow-target="item">
+			<lottie-player src="<%= asset_url('animation_placeholder_5.json') %>" background="#ffffff" speed="1" style="width: 100%; height: 100%" loop autoplay></lottie-player>
+		</div>
+	</div>
+</div>
