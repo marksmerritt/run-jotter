@@ -1,0 +1,138 @@
+.identity__section--form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.identity__header {
+	margin-top: 2rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.identity__header-logo-box {
+	width: 7rem;
+	height: 7rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.identity__header-logo {
+	width: 100%;
+	height: 100%;
+}
+
+.identity__heading {
+	font-size: 2rem;
+}
+
+.identity__subheading {
+	margin-top: .5rem;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.identity__form-container {
+	position: relative;
+	background: var(--color-white);
+	margin-top: 1.5rem;
+	animation: scale-fade-in .3s ease;
+	border-radius: 1rem;
+	padding: 1.5rem 3rem 3rem;
+	box-shadow: var(--shadow);
+	min-width: 30rem;
+}
+
+.identity__form-heading {
+	font-size: .9rem;
+	font-weight: 400;
+	text-align: center;
+	margin-top: 1.5rem;
+}
+
+.identity__field-set {
+	margin: 1rem 0;
+}
+
+.identity__field-container {
+	position: relative;
+	margin-block-end: .625em;
+}
+
+.identity__field {
+	display: block;
+	inline-size: 100%;
+	padding-block-start: 1.2rem;
+	padding-block-end: .4rem;
+	transition: box-shadow .15s ease-in-out;
+	padding: .5rem;
+	resize: none;
+	max-inline-size: 100%;
+	background-color: var(--color-white);
+	border: var(--border-field);
+	border-radius: .4rem;
+	line-height: 1.5;
+	font-family: inherit;
+	font-weight: inherit;
+	font-size: 1.1rem;
+	color: inherit;
+	appearance: none;
+	margin: 0;
+}
+.identity__field:focus {
+	outline: none;
+	border-color: var(--color-primary);
+	box-shadow: 0 0 6px rgba(var(--color-primary-200), 0.5);
+}
+.identity__field:not(:placeholder-shown) {
+	padding-block-start: 1.2rem;
+	padding-block-end: .4rem;
+}
+.identity__field:not(:placeholder-shown) + .identity__field-label {
+	transform: scale(.8) translate(.2rem, -.75rem);
+	visibility: visible;
+}
+
+.identity__field-label {
+	transition: transform .2s cubic-bezier(.2, 1.3, .7, 1);
+	position: absolute;
+	inset-block-start: 1rem;
+	inset-inline-start: .5em;
+	color: var(--color-text--subtle);
+	transform-origin: 0 0;
+	visibility: hidden;
+	font-weight: normal;
+	user-select: none;
+}
+
+.identity__submit-button {
+	display: block;
+	margin-top: 2rem;
+	inline-size: 100%;
+	background-color: var(--color-primary);
+	color: var(--color-white);
+	padding: 1rem 1.5rem;
+	border: none;
+	border-radius: 99rem;
+	vertical-align: middle;
+	text-decoration: none;
+	text-align: center;
+	white-space: normal;
+	cursor: pointer;
+	outline-offset: .4em;
+	font-size: 1.1rem;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.identity__continue-with-google-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
