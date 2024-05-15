@@ -1,4 +1,4 @@
-<div>
+<div class="identity__continue-with-google-container">
   <div id="g_id_onload"
        data-client_id="<%= Rails.application.credentials.google_oauth.client_id %>"
        data-login_uri="<%= google_accounts_url %>"
@@ -15,6 +15,7 @@
        data-text="continue_with"
        data-size="large"
        data-logo_alignment="left"
-       data-authenticity_token="<%= form_authenticity_token %>">
+       data-authenticity_token="<%= form_authenticity_token %>"
+       data-width="250">
   </div>
 </div>

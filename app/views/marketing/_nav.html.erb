@@ -20,5 +20,6 @@
 		</div>
 	</div>
 
-	<%= link_to "Try for Free", "#", class: "marketing__signup-button" %>
+	<%= link_to "Sign In", sign_in_path, class: "marketing__sign-in-link", data: { turbo: false } %>
+	<%= link_to "Try for Free", sign_up_path, class: "marketing__sign-up-button", data: { turbo: false } %>
 </nav>

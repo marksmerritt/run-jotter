@@ -172,7 +172,16 @@
 	text-transform: uppercase;
 }
 
-.marketing__signup-button {
+.marketing__sign-in-link {
+	color: var(--color-primary);
+	text-decoration: none;
+	margin-right: 3rem;
+}
+.marketing__sign-in-link:hover {
+	text-decoration: underline;
+}
+
+.marketing__sign-up-button {
 	text-decoration: none;
 	padding: .7rem 1.8rem;
 	background-color: var(--color-primary);
@@ -182,7 +191,7 @@
 	border-radius: 3px;
 	transition: background-color .3s;
 }
-.marketing__signup-button:hover {
+.marketing__sign-up-button:hover {
 	background-color: var(--color-primary-600);
 }
 

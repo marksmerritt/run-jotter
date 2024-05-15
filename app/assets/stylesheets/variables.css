@@ -25,10 +25,17 @@
   --color-border-dark: var(--color-gray-50);
   --color-text: var(--color-gray-100);
   --color-text-subdued: var(--color-gray-40);
+  --color-text--subtle: rgb(109, 109, 109);
   --color-primary: var(--color-primary-500);
   --color-error: var(--color-red-500);
   --color-highlight: var(--color-blue-100);
   --color-highlight-bg: var(--color-primary-200);
+
+  /* Borders */
+  --border-field: 1px solid hsla( 0, 0%, 0% , 0.15);
+
+  /* Shadows */
+  --shadow: 0 -1px 1px hsla( 34.5, 20.9%, 44.1% , 0.05), 0 1px 2px -0.5px hsla( 34.5, 20.9%, 44.1% , 0.1) , 0 2px 4px -1px hsla( 34.5, 20.9%, 44.1% , 0.2);
 
 	/* Spacing */
 	--marketing-nav-height: 4rem;
