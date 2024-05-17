@@ -1,8 +1,8 @@
 class Identity::GoogleAccountsController < Identity::BaseController
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [ :create ]
   before_action :redirect_if_signed_in
-  before_action :validate_google_csrf, only: [:create]
-  before_action :set_google_account, only: [:edit, :update]
+  before_action :validate_google_csrf, only: [ :create ]
+  before_action :set_google_account, only: [ :edit, :update ]
 
   def create
     google_account_connection = GoogleAccountConnection.new(credential: params[:credential])
@@ -37,17 +37,16 @@ class Identity::GoogleAccountsController < Identity::BaseController
   end
 
   private
+    def validate_google_csrf
+      if cookies["g_csrf_token"].blank? ||
+         params["g_csrf_token"].blank? ||
+         cookies["g_csrf_token"] != params["g_csrf_token"]
 
-  def validate_google_csrf
-    if cookies["g_csrf_token"].blank? ||
-       params["g_csrf_token"].blank? ||
-       cookies["g_csrf_token"] != params["g_csrf_token"]
-
-       raise Google::Auth::IDTokens::VerificationError
+         raise Google::Auth::IDTokens::VerificationError
+      end
     end
-  end
 
-  def set_google_account
-    @google_account = GoogleAccount.find(params[:id])
-  end
+    def set_google_account
+      @google_account = GoogleAccount.find(params[:id])
+    end
 end

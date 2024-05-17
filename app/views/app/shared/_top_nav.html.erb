@@ -1,0 +1,25 @@
+<nav class="app__nav">
+	<div class="app__nav-left">
+		<div class="app__nav-logo-container">
+			<div class="app__nav-logo-box">
+				<%= svg_tag "logo", class: "app__nav-logo" %>
+			</div>
+			<span class="app__nav-logo-text">RunJotter</span>
+		</div>
+	</div>
+
+	<div class="app__nav-center">
+	</div>
+
+	<div class="app__nav-right">
+		<%= link_to root_path, class: "app__nav-link" do %>
+			<%= svg_tag "bell", class: "app__nav-bell", alt: "Notifications bell" %>
+		<% end %>
+
+		<%= link_to root_path, class: "app__nav-link" do %>
+			<div class="app__nav-avatar-box">
+				<%= image_tag "avatar_placeholder_1.jpg", class: "app__nav-avatar", alt: "User avatar" %>
+			</div>
+		<% end %>
+	</div>
+</nav>

@@ -1,6 +1,6 @@
 class Identity::SignUpsController < Identity::BaseController
   before_action :redirect_if_signed_in
-  invisible_captcha only: [:create], on_spam: :redirect_after_spam
+  invisible_captcha only: [ :create ], on_spam: :redirect_after_spam
 
   def new
     @user = User.new
@@ -22,15 +22,14 @@ class Identity::SignUpsController < Identity::BaseController
 
   def update
     if current_user.update(sign_up_params)
-      redirect_to dashboard_path, notice: "Info updated"
+      redirect_to calendar_weekly_path, notice: "Info updated"
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   private
-
-  def sign_up_params
-    params.require(:user).permit(:email, :password, :time_zone)
-  end
+    def sign_up_params
+      params.require(:user).permit(:email, :password, :time_zone)
+    end
 end

@@ -35,3 +35,19 @@
     transform: none;
   }
 }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: .8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  from { background: var(--color-primary-200); }
+  to   { background: default; }
+}

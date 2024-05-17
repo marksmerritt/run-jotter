@@ -27,6 +27,7 @@ end
 
 group :development do
   gem "web-console"
+  gem "rubocop-rails-omakase", "~> 1.0", require: false
 end
 
 group :test do

@@ -1,0 +1,51 @@
+<% dates = selected_date.beginning_of_month..selected_date.end_of_month %>
+<% offset = dates.first.strftime("%w").to_i == 0 ? 6 : dates.first.strftime("%w").to_i - 1 %>
+
+<%= turbo_frame_tag :jump_to do %>
+	<div class="date-picker__header">
+		<div class="date-picker__header--left">
+			<%= link_to date_picker_path(selected_date: (selected_date - 1.month).beginning_of_month.to_date),
+			      class: "date-picker__switcher", data: { turbo_stream: true } do %>
+				<%= svg_tag "chevron-left", class: "date-picker__switcher-icon" %>
+			<% end %>
+		</div>
+
+		<div class="date-picker__header--center">
+			<span class="date-picker__month"><%= selected_date.strftime("%B") %></span>
+			<span class="date-picker__year"><%= selected_date.strftime("%Y") %></span>
+		</div>
+
+		<div class="date-picker__header--right">
+			<%= link_to date_picker_path(selected_date: (selected_date + 1.month).beginning_of_month.to_date),
+			      class: "date-picker__switcher", data: { turbo_stream: true } do %>
+				<%= svg_tag "chevron-right", class: "date-picker__switcher-icon" %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="date-picker__days">
+		<span class="date-picker__day-of-week">Mon</span>
+		<span class="date-picker__day-of-week">Tue</span>
+		<span class="date-picker__day-of-week">Wed</span>
+		<span class="date-picker__day-of-week">Thu</span>
+		<span class="date-picker__day-of-week">Fri</span>
+		<span class="date-picker__day-of-week">Sat</span>
+		<span class="date-picker__day-of-week">Sun</span>
+
+		<% offset.times do %>
+			<span class="date-picker__day">&nbsp;</span>
+		<% end %>
+
+		<% dates.each do |date| %>
+			<%= link_to calendar_weekly_index_path(
+				    scroll_direction: "none",
+				    selected_date: date,
+				    start_date: (date - 4.weeks).beginning_of_week.to_date,
+				    end_date: (date + 4.weeks).end_of_week.to_date),
+			    class: "date-picker__day #{date == Date.current ? 'date-picker__day--current' : '' }",
+			    data: { turbo_frame: :calendar, action: "popup#close" } do %>
+				<%= date.day %>
+			<% end %>
+		<% end %>
+	</div>
+<% end %>

@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :sign_ins, dependent: :destroy
   has_many :google_accounts, dependent: :destroy
+  has_many :activities, dependent: :destroy
 
   generates_token_for :email_verification, expires_in: EMAIL_VERIFICATION_TOKEN_EXPIRY do
     email
@@ -60,28 +61,27 @@ class User < ApplicationRecord
   end
 
   private
-
-  def set_random_password
-    self.password ||= SecureRandom.hex + "1Rj!"
-  end
-
-  def set_random_username
-    return if username.present?
-
-    loop do
-      self.username = UsernameGenerator.generate
-      break if User.find_by(username: username).nil?
+    def set_random_password
+      self.password ||= SecureRandom.hex + "1Rj!"
     end
-  end
 
-  def time_zone_supported
-    return unless time_zone.present?
-    return if ActiveSupport::TimeZone[time_zone].present?
+    def set_random_username
+      return if username.present?
 
-    errors.add(:time_zone, "is not supported")
-  end
+      loop do
+        self.username = UsernameGenerator.generate
+        break if User.find_by(username: username).nil?
+      end
+    end
 
-  def validate_password?
-    new_record? || password.present?
-  end
+    def time_zone_supported
+      return unless time_zone.present?
+      return if ActiveSupport::TimeZone[time_zone].present?
+
+      errors.add(:time_zone, "is not supported")
+    end
+
+    def validate_password?
+      new_record? || password.present?
+    end
 end

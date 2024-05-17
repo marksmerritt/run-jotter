@@ -25,17 +25,16 @@ class Identity::PasswordResetsController < Identity::BaseController
   end
 
   private
+    def verify_user_not_signed_in
+      redirect_back fallback_location: root_path, notice: "You are already signed in" if user_signed_in?
+    end
 
-  def verify_user_not_signed_in
-    redirect_back fallback_location: root_path, notice: "You are already signed in" if user_signed_in?
-  end
+    def set_user_by_token
+      @user = User.find_by_token_for(:password_reset, params[:token])
+      redirect_to new_password_reset_path, alert: "Invalid token. Please request a new password reset email." unless @user.present?
+    end
 
-  def set_user_by_token
-    @user = User.find_by_token_for(:password_reset, params[:token])
-    redirect_to new_password_reset_path, alert: "Invalid token. Please request a new password reset email." unless @user.present?
-  end
-
-  def password_params
-    params.require(:user).permit(:password, :password_confirmation)
-  end
+    def password_params
+      params.require(:user).permit(:password, :password_confirmation)
+    end
 end

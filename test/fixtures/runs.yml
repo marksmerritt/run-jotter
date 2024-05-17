@@ -1,0 +1,11 @@
+fartlek:
+  kind: fartlek
+  distance_display_unit: miles
+  distance: 160934
+  elevation_display_unit: miles
+  elevation: 3048
+
+easy_5k:
+  kind: easy_run
+  distance: 5
+  distance_display_unit: kilometers

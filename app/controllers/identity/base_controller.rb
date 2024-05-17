@@ -1,13 +1,12 @@
 class Identity::BaseController < ApplicationController
-	layout "identity"
+  layout "identity"
 
-	before_action :redirect_if_signed_in
+  before_action :redirect_if_signed_in
 
-	private
+  private
+    def redirect_if_signed_in
+      return unless user_signed_in?
 
-	def redirect_if_signed_in
-		return unless user_signed_in?
-
-		redirect_to dashboard_path
-	end
+      redirect_to calendar_weekly_path
+    end
 end

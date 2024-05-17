@@ -1,0 +1,21 @@
+<%= turbo_frame_tag :calendar do %>
+  <div class="calendar"
+       data-controller="calendar"
+       data-calendar-flash-class="calendar__day--flash"
+       data-calendar-url-value="<%= calendar_weekly_index_url %>"
+       data-calendar-start-date-value="<%= @start_date.to_date %>"
+       data-calendar-end-date-value="<%= @end_date.to_date %>"
+       data-calendar-current-date-value="<%= Date.current.strftime("%Y-%m-%d") %>">
+    <div id="upCursor" data-calendar-target="upCursor"></div>
+
+    <div id="weeks">
+      <%= render "app/calendar/weekly/week_group", dates: (@start_date.to_date..@end_date.to_date).to_a, selected_date: @selected_date %>
+    </div>
+
+    <div id="downCursor" data-calendar-target="downCursor"></div>
+  </div>
+<% end %>
+
+<% content_for :bottom_nav_left do %>
+  <%= render "app/calendar/weekly/quick_actions" %>
+<% end %>

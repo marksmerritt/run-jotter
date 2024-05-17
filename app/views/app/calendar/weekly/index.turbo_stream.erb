@@ -1,0 +1,9 @@
+<% action = @start_date.past? ? "prepend" : "append"  %>
+<% scrollDirection = @start_date.past? ? "up" : "down" %>
+
+<%= turbo_stream.public_send(action, "weeks") do %>
+	<%= render partial: "app/calendar/weekly/week_group", locals: { dates: (@start_date.to_date..@end_date.to_date).to_a,
+		                                                              selected_date: nil,
+		                                                              scroll_direction: scrollDirection,
+	                                                                activities: @activities } %>
+<% end %>

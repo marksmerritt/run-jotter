@@ -1,0 +1,6 @@
+fartlek:
+  user: mark
+  activityable: fartlek (Run)
+  title: Fartlek
+  started_at: <%= 2.days.ago %>
+  duration: 3600
