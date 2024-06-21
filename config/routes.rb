@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resources :activities
 
     namespace :calendar do
-      resources :weekly, only: [:index]
+      resources :weekly, only: [ :index ]
     end
   end
 end
