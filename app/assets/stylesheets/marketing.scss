@@ -1,21 +1,23 @@
-/*------------------------ Nav ------------------------*/
+$marketing-nav-height: 4rem;
 
-.marketing__nav {
-	height: var(--marketing-nav-height);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 1rem 5rem;
-	background-color: var(--color-white);
-	z-index: 9;
-	max-width: 1800px;
-	margin: .5rem auto 0 auto;
+.marketing {
+	&__nav {
+		height: $marketing-nav-height;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1rem 5rem;
+		background-color: $color-white;
+		max-width: 1800px;
+		margin: .5rem auto 0 auto;
+	}
 }
+
+/*------------------------ Nav ------------------------*/
 
 .marketing__nav-logo-link {
 	display: flex;
 	align-items: center;
-	text-decoration: none;
 }
 
 .marketing__nav-logo-box {

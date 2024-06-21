@@ -97,6 +97,9 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
+    dartsass-rails (0.5.0)
+      railties (>= 6.0.0)
+      sass-embedded (~> 1.63)
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
@@ -114,6 +117,24 @@ GEM
       activesupport (>= 6.1)
     google-cloud-env (2.1.1)
       faraday (>= 1.0, < 3.a)
+    google-protobuf (4.27.1)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.27.1-aarch64-linux)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.27.1-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.27.1-x86-linux)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.27.1-x86_64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.27.1-x86_64-linux)
+      bigdecimal
+      rake (>= 13)
     googleauth (1.11.0)
       faraday (>= 1.0, < 3.a)
       google-cloud-env (~> 2.1)
@@ -281,6 +302,21 @@ GEM
     ruby-vips (2.2.1)
       ffi (~> 1.12)
     rubyzip (2.3.2)
+    sass-embedded (1.77.5)
+      google-protobuf (>= 3.25, < 5.0)
+      rake (>= 13)
+    sass-embedded (1.77.5-aarch64-linux-gnu)
+      google-protobuf (>= 3.25, < 5.0)
+    sass-embedded (1.77.5-arm-linux-gnueabihf)
+      google-protobuf (>= 3.25, < 5.0)
+    sass-embedded (1.77.5-arm64-darwin)
+      google-protobuf (>= 3.25, < 5.0)
+    sass-embedded (1.77.5-x86-linux-gnu)
+      google-protobuf (>= 3.25, < 5.0)
+    sass-embedded (1.77.5-x86_64-darwin)
+      google-protobuf (>= 3.25, < 5.0)
+    sass-embedded (1.77.5-x86_64-linux-gnu)
+      google-protobuf (>= 3.25, < 5.0)
     selenium-webdriver (4.20.1)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
@@ -344,6 +380,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   capybara
+  dartsass-rails (~> 0.5.0)
   debug
   faker (~> 3.2, >= 3.2.3)
   googleauth (~> 1.9)
