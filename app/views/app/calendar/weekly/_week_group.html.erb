@@ -1,0 +1,19 @@
+<% scroll_direction ||= nil %>
+
+<div class="calendar__week-group" data-calendar-target="weekGroup" data-calendar-scroll-direction="<%= scroll_direction %>">
+	<% dates.in_groups_of(7).each_with_index do |week_days, index| %>
+		<div class="calendar__week <%= week_days.include?(Date.current) ? 'calendar__week--current' : '' %>" data-calendar-target="week">
+			<% week_days.each do |day| %>
+				<div class="calendar__day <%= day == Date.current ? 'calendar__day--today' : '' %>"
+	   			 	 id="<%= day.strftime("%Y-%m-%d") %>"
+	   			 	 data-calendar-target="day"
+	   			 	 data-calendar-selected-date="<%= day == selected_date %>">
+
+	         <%= render "app/calendar/weekly/day", day: day, selected_date: selected_date, activities: (@activities[day.strftime("%Y-%m-%d")].presence || {}) %>
+				</div>
+			<% end %>
+
+			<div class="calendar__week-stats"></div>
+		</div>
+	<% end %>
+</div>

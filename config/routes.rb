@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  require "sidekiq/web"
+  mount Sidekiq::Web => "/sidekiq"
 
   get "up" => "rails/health#show", as: :rails_health_check
   root "marketing/pages#index"
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   scope module: :identity do
     get :sign_up, to: "sign_ups#new"
     post :sign_up, to: "sign_ups#create"
-    resource :sign_up, only: [:edit, :update]
+    resource :sign_up, only: [ :edit, :update ]
     get :sign_in, to: "sign_ins#new"
     post :sign_in, to: "sign_ins#create"
     delete :sign_out, to: "sign_ins#destroy"
@@ -28,5 +28,11 @@ Rails.application.routes.draw do
     resource :dashboard, controller: "dashboard"
     get :profile, to: "profiles#edit"
     patch :profile, to: "profiles#update"
+    resource :date_picker
+    resources :activities
+
+    namespace :calendar do
+      resources :weekly, only: [ :index ]
+    end
   end
 end

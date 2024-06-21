@@ -1,0 +1,44 @@
+<% if day.strftime("%a") == "Mon" && day.strftime("%e").strip != "1" %>
+	<div class="calendar__month-label">
+		<span><%= day.strftime("%B") %></span>
+		<span class="calendar__year"><%= day.strftime("%y") %></span>
+	</div>
+<% elsif day.strftime("%e").strip == "1" %>
+	<div class="calendar__month-label calendar__month-label--changed">
+		<span><%= day.strftime("%B") %></span>
+		<span class="calendar__year"><%= day.strftime("%y") %></span>
+	</div>
+<% end %>
+
+<div class="calendar__day-label">
+	<span class="calendar__day-of-week"><%= day.strftime("%a") %></span>
+	<span class="calendar__day-of-month"><%= day.strftime("%e") %></span>
+</div>
+
+<div class="calendar__activities-container" id="activities_for_<%= day.strftime("%Y-%m-%d") %>">
+	<% activities.each do |activity| %>
+		<div class="calendar__activity-container">
+			<div class="calendar__activity-title"><%= activity.title %></div>
+		</div>
+	<% end %>
+</div>
+
+<div data-controller="popup"
+     data-popup-hide-class="hidden"
+     data-popup-placement-value="left"
+     data-popup-strategy-value="fixed"
+     data-popup-prevent-default-value="false"
+     class="activity__add-container">
+
+  	<%= link_to new_activity_path(selected_date: day), class: "activity__add-link", data: { turbo_stream: true,
+  	                                                                                        action: "click->popup#open",
+  	                                                                                        popup_target: "button" } do %>
+	  <span></span>
+	<% end %>
+
+  <div class="popup-backdrop hidden" data-popup-target="backdrop" data-action="click->popup#close"></div>
+
+  <div class="popup-content hidden" data-popup-target="popupContainer">
+  	<%= turbo_frame_tag "activity_form_for_#{day}" %>
+  </div>
+</div>

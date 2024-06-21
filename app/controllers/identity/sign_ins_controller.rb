@@ -1,6 +1,6 @@
 class Identity::SignInsController < Identity::BaseController
-  before_action :redirect_if_signed_in, except: [:destroy]
-  invisible_captcha only: [:create], on_spam: :redirect_after_spam
+  before_action :redirect_if_signed_in, except: [ :destroy ]
+  invisible_captcha only: [ :create ], on_spam: :redirect_after_spam
 
   def new
   end

@@ -1,0 +1,73 @@
+<div class="activity-form__container" data-popup-target="popupContent">
+	<%= form_with model: activity, data: { action: "turbo:submit-end->popup#submitEnd" } do |form| %>
+		<div class="activity-form">
+			<div class="activity-form__type-date-container">
+				<div class="activity-form__type-container">
+					<%= form.select :activityable_type, options_for_select(Activity::TYPES), {}, { class: "activity-form__type-select" } %>
+				</div>
+
+				<div class="activity-form__started-at-container">
+					<%= form.datetime_field :started_at, value: @selected_date.to_time, class: "activity-form__started-at" %>
+				</div>
+
+				<div class="activity-form__close-icon-container">
+					<%= svg_tag "close", class: "activity-form__close-icon", data: { popup_target: "closeButton", action: "click->popup#close" } %>
+				</div>
+			</div>
+
+			<div class="activity-form__title-container">
+				<%= form.text_field :title, class: "activity-form__title", placeholder: "Title...", autocomplete: "off", autofocus: true %>
+			</div>
+
+			<%= form.fields_for :activityable, Run.new do |activityable_form| %>
+				<div class="activity-form__field-container">
+					<%= activityable_form.label :kind, "Run Type", class: "activity-form__label" %>
+					<%= activityable_form.select :kind, options_for_enum(Run.kinds) %>
+				</div>
+
+				<div class="activity-form__field-container">
+					<%= form.label :duration, class: "activity-form__label" %>
+
+					<div class="activity-form__duration-field-wrapper">
+						<%= form.number_field :duration_hours, class: "activity-form__field activity-form__field--duration", placeholder: "HH", min: 0 , max: 23  %> :
+						<%= form.number_field :duration_minutes, class: "activity-form__field activity-form__field--duration", placeholder: "MM", min: 0, max: 59 %> :
+						<%= form.number_field :duration_seconds, class: "activity-form__field activity-form__field--duration", placeholder: "SS", min: 0 , max: 59  %>
+					</div>
+				</div>
+
+				<div class="activity-form__field-container">
+					<%= activityable_form.label :distance, class: "activity-form__label" %>
+
+					<div class="activity-form__distance-field-wrapper">
+						<%= activityable_form.number_field :distance, class: "activity-form__field activity-form__field--distance", min: 0, max: 999 %>
+						<%= activityable_form.select :distance_display_unit, options_for_enum(Run.distance_display_units), class: "activity-form__unit-field" %>
+					</div>
+				</div>
+
+
+
+				<div class="activity-form__field-container">
+					<%= activityable_form.label :elevation, class: "activity-form__label" %>
+
+					<div class="activity-form__elevation-field-wrapper">
+						<%= activityable_form.number_field :elevation, class: "activity-form__field", min: 0, max: 30000 %>
+						<%= activityable_form.select :elevation_display_unit, options_for_enum(Run.elevation_display_units), class: "activity-form__unit-field" %>
+					</div>
+				</div>
+			<% end %>
+
+			<div class="activity-form__exertion-field-container">
+				<%= form.label :exertion, class: "activity-form__label" %>
+				<%= form.number_field :exertion %>
+			</div>
+
+			<div class="activity-form__description-container" data-controller="trix--minimal-editor">
+				<%= form.rich_text_area :description, placeholder: "Description..." %>
+			</div>
+
+			<div class="activity-form__submit-button-container">
+				<%= form.submit "Add Run" %>
+			</div>
+		</div>
+	<% end %>
+</div>

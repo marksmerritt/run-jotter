@@ -1,0 +1,7 @@
+<%= turbo_stream.append "activities_for_#{@activity.started_at.strftime('%Y-%m-%d')}" do %>
+	<%= render "app/activities/activity", activity: @activity %>
+<% end %>
+
+<%= turbo_stream.replace "activity_form_for_#{@activity.started_at.strftime('%Y-%m-%d')}" do %>
+	<span></span>
+<% end %>

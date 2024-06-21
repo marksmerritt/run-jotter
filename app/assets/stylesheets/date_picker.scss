@@ -1,0 +1,113 @@
+.date-picker__container {
+	background-color: var(--color-primary-300);
+	border-radius: 20px;
+	padding: 1.5rem;
+	margin: .5rem;
+}
+
+.date-picker__header {
+	display: flex;
+	align-items: center;
+	padding: 0 1rem;
+}
+.date-picker__header--left {
+	flex-basis: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.date-picker__header--center {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.date-picker__header--right {
+	flex-basis: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.date-picker__month,
+.date-picker__year {
+	color: var(--color-white);
+}
+
+.date-picker__month {
+	margin-right: .3rem;
+}
+
+.date-picker__year {
+
+}
+
+.date-picker__switcher-container {
+	justify-self: end;
+}
+
+.date-picker__switcher {
+	height: 3rem;
+	width: 3rem;
+	border-radius: 50%;
+	padding: .5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .2s;
+}
+.date-picker__switcher:hover {
+	background-color: var(--color-primary-600);
+}
+
+.date-picker__switcher-icon {
+	height: 1.5rem;
+	width: 1.5rem;
+	fill: var(--color-white);
+}
+
+.date-picker__days {
+	margin-top: 1rem;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(7, 1fr);
+	gap: .5rem;
+}
+
+.date-picker__day,
+.date-picker__day-of-week {
+	justify-self: center;
+	color: var(--color-white);
+	padding: .5rem;
+}
+
+.date-picker__day-of-week {
+	font-weight: 600;
+}
+
+.date-picker__day {
+	position: relative;
+	text-decoration: none;
+	border-radius: 50%;
+	width: 2.5rem;
+	height: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .2s;
+}
+.date-picker__day:hover {
+	background-color: var(--color-primary-600);
+}
+.date-picker__day:hover .date-picker__day--current::after {
+	opacity: 0;
+}
+.date-picker__day--current::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	width: .5rem;
+	height: .5rem;
+	border-radius: 50%;
+	background-color: var(--color-primary-200);
+}
