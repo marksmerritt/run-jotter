@@ -20,6 +20,7 @@ gem "googleauth", "~> 1.9"
 gem "faker", "~> 3.2", ">= 3.2.3"
 gem "user_agent_parser", "~> 2.16"
 gem "invisible_captcha", "~> 2.2"
+gem 'dartsass-rails', '~> 0.5.0'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]

@@ -18,11 +18,12 @@
   </head>
 
   <body>
-    <div data-controller="time-zone">
-      <%= render "marketing/nav" %>
-      <%= render "identity/shared/google_one_tap" %>
+    <%= render "marketing/shared/nav" %>
 
+    <main data-controller="time-zone">
       <%= yield %>
-    </div>
+    </main>
+
+    <%= render "identity/shared/google_one_tap" %>
   </body>
 </html>

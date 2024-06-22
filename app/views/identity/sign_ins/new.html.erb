@@ -1,38 +1,38 @@
-<header class="identity__header">
-	<div class="identity__header-logo-box">
-		<%= image_tag "logo.svg", class: "identity__header-logo" %>
+<header>
+	<div>
+		<%= image_tag "logo.svg" %>
 	</div>
 
-	<h1 class="identity__heading">Welcome Back!</h1>
-	<h3 class="identity__subheading">Sign in to your RunJotter account below</h3>
+	<h1>Welcome Back!</h1>
+	<h3>Sign in to your RunJotter account below</h3>
 </header>
 
 <main>
-	<section class="identity__section identity__section--form">
-		<div class="identity__form-container">
+	<section>
+		<div>
 			<%= render "identity/shared/continue_with_google" %>
 
-			<h4 class="identity__form-heading">Or, sign in with your email address</h4>
+			<h4>Or, sign in with your email address</h4>
 
 			<%= form_with url: sign_in_path, data: { turbo: false } do |form| %>
 				<%= form.invisible_captcha %>
 
-				<%= form.time_zone_select :time_zone, priority_time_zones, { default: browser_time_zone.name }, { class: "hidden" } %>
+				<%= form.time_zone_select :time_zone, priority_time_zones, { default: browser_time_zone.name }, { } %>
 
-				<div class="identity__field-set">
-					<div class="identity__field-container">
-						<%= form.email_field :email, id: "sign_up_email_field", class: "identity__field", placeholder: "Email address", autofocus: true %>
-						<%= form.label :email, "Email address", class: "identity__field-label" %>
+				<div>
+					<div>
+						<%= form.email_field :email, id: "sign_up_email_field", placeholder: "Email address", autofocus: true %>
+						<%= form.label :email, "Email address" %>
 					</div>
 
-					<div class="identity__field-container">
-						<%= form.password_field :password, id: "sign_up_password_field", class: "identity__field", placeholder: "Password" %>
-						<%= form.label :email, "Password", class: "identity__field-label" %>
+					<div>
+						<%= form.password_field :password, id: "sign_up_password_field", placeholder: "Password" %>
+						<%= form.label :email, "Password" %>
 					</div>
 				</div>
 
 				<div>
-					<%= form.submit "Sign in →", id: "sign_up_button", class: "identity__submit-button" %>
+					<%= form.submit "Sign in →", id: "sign_up_button" %>
 				</div>
 			<% end %>
 		</div>

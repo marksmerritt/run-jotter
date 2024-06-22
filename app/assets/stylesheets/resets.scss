@@ -9,8 +9,8 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-primary);
-  color: var(--color-text);
+  font-family: "Inter", system-ui, sans-serif;
+  color: $color-black;
 }
 
 main {
@@ -35,6 +35,8 @@ pre {
 
 a {
   background-color: transparent;
+  color: $color-blue;
+  text-decoration: none;
 }
 
 abbr[title] {
