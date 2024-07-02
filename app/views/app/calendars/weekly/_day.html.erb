@@ -1,0 +1,16 @@
+<% if day.strftime("%a") == "Mon" && day.strftime("%e").strip != "1" %>
+  <div class="weekly-calendar__month-label">
+    <span><%= day.strftime("%B") %></span>
+    <span class="weekly-calendar__year"><%= day.strftime("%y") %></span>
+  </div>
+<% elsif day.strftime("%e").strip == "1" %>
+  <div class="weekly-calendar__month-label weekly-calendar__month-label--changed">
+    <span><%= day.strftime("%B") %></span>
+    <span class="weekly-calendar__year"><%= day.strftime("%y") %></span>
+  </div>
+<% end %>
+
+<div class="weekly-calendar__day-label">
+  <span class="weekly-calendar__day-of-week"><%= day.strftime("%a") %></span>
+  <span class="weekly-calendar__day-of-month"><%= day.strftime("%e") %></span>
+</div>

@@ -1,0 +1,42 @@
+<div class="calendar__quick-actions">
+
+	<div class="calendar__quick-action">
+		<div class="popup" data-controller="popup" data-popup-hide-class="hidden" data-popup-strategy-value="fixed">
+			<%= link_to "#", class: "calendar__quick-action-button calendar__quick-action-button--add", title: "Quick Add", data: { popup_target: "button", action: "popup#open", turbo_stream: true } do %>
+				<%= svg_tag "add", class: "calendar__quick-action-icon calendar__quick-action-icon--add" %>
+				<span class="calendar__quick-action-text">Add</span>
+			<% end %>
+
+			<div class="popup-backdrop hidden" data-popup-target="backdrop" data-action="click->popup#close"></div>
+
+			<div class="popup-content hidden" data-popup-target="popupContainer">
+				<div class="popup__arrow popup__arrow--primary" data-popper-arrow></div>
+
+				<div class="activity-form__container">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="calendar__quick-action">
+		<div class="popup" data-controller="popup" data-popup-hide-class="hidden" data-popup-strategy-value="fixed">
+			<%= link_to "#", class: "calendar__quick-action-button calendar__quick-action-button--jump",
+			                 title: "Jump to date",
+			                 data: { popup_target: "button", action: "popup#toggle" } do %>
+				<%= svg_tag "calendar", class: "calendar__quick-action-icon calendar__quick-action-icon--jump" %>
+				<span class="calendar__quick-action-text">Jump</span>
+			<% end %>
+
+			<div class="popup-backdrop hidden" data-popup-target="backdrop" data-action="click->popup#close"></div>
+
+			<div class="popup-content date-picker__container hidden" data-controller="date-picker" data-popup-target="popupContainer">
+				<div class="popup__arrow" data-popper-arrow></div>
+
+				<div data-popup-target="popupContent">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
