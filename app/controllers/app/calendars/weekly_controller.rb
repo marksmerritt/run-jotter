@@ -1,8 +1,9 @@
 class App::Calendars::WeeklyController < App::BaseController
 	def show
     set_dates
-    @selected_date = params[:selected_date]&.to_date || Date.current
-    @activities = {}
+    @selected_day = params[:selected_day]&.to_date || Date.current
+    @activities = Current.user.activities.where(starts_at: @start_date..@end_date)
+                         .group_by { |activity| activity.starts_at.in_time_zone(Current.user.time_zone || default_time_zone).to_date.strftime("%Y-%m-%d") }
 
     respond_to do |format|
       format.html

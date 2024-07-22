@@ -1,3 +1,11 @@
+export function showElement(element, cssClass="hidden") {
+  element.classList.remove(cssClass)
+}
+
+export function hideElement(element, cssClass="hidden") {
+  element.classList.add(cssClass)
+}
+
 export function scrollToElement(element, position = "center") {
 	element?.scrollIntoView({ behavior: "instant", block: position, inline: position })
 }

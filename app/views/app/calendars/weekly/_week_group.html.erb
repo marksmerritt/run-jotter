@@ -11,10 +11,10 @@
 				<div class="weekly-calendar__day <%= day == Date.current ? "weekly-calendar__day--today" : '' %>"
 					   id="<%= day.strftime('%Y-%m-%d') %>"
 					   data-weekly-calendar-target="day"
-					   data-calendar-selected-date="<%= day == selected_date %>">
+					   data-calendar-selected-date="<%= day == selected_day %>">
 
 					<%= render "app/calendars/weekly/day", day: day,
-					                                       selected_date: selected_date,
+					                                       selected_day: selected_day,
 					                                       activities: (activities[day.strftime("%Y-%m-%d")].presence || {}) %>
 
 				</div>

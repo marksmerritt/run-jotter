@@ -69,11 +69,9 @@
 	}
 
 	&__day-label {
-		position: absolute;
-	  top: .2rem;
-	  right: .2rem;
 	  display: flex;
 	  align-items: center;
+	  justify-content: flex-end;
 	}
 
 	&__day-of-week {
@@ -93,5 +91,30 @@
   	width: 2rem;
   	height: 2rem;
   	justify-content: center;
+	}
+
+	&__activities {
+		flex: 1;
+		padding: .3rem;
+
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__add-activity-button {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+
+		a {
+			display: block;
+			flex: 1;
+		}
+
+		&:hover,
+		&:active {
+			cursor: pointer;
+			border: 1px dotted $color-gray;
+		}
 	}
 }

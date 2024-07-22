@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :sign_ins, dependent: :destroy
   has_many :google_accounts, dependent: :destroy
+  has_many :activities
 
   generates_token_for :email_verification, expires_in: EMAIL_VERIFICATION_TOKEN_EXPIRY do
     email

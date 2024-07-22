@@ -33,5 +33,7 @@ Rails.application.routes.draw do
       get :weekly, to: "weekly#show", as: :weekly_calendar
       get :daily, to: "weekly#show", as: :daily_calendar
     end
+
+    resources :activities
   end
 end

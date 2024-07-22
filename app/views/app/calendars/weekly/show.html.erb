@@ -6,7 +6,7 @@
 
   <div class="weekly-calendar" id="calendar-weeks">
   	<%= render "app/calendars/weekly/week_group", dates: (@start_date.to_date..@end_date.to_date).to_a,
-  	                                              selected_date: @selected_date,
+  	                                              selected_day: @selected_day,
   	                                              activities: @activities %>
   </div>
 
