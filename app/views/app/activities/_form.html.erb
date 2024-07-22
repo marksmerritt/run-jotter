@@ -1,2 +1,23 @@
-<div class="activity-form__container" data-popup-target="popupContent">
+<div class="popup border border--thick border--blue" data-popup-target="popupContent">
+	<%= form_with model: activity, class: "form" do |form| %>
+		<div class="form__header">
+			<h3 class="form__heading">New Activity</h3>
+		</div>
+
+		<div class="form__fields">
+			<div class="form__field">
+				<%= form.label :starts_at %>
+				<%= form.date_field :starts_at, value: selected_day %>
+			</div>
+
+			<div class="form__field">
+				<%= form.label :title %>
+				<%= form.text_field :name %>
+			</div>
+		</div>
+
+		<div class="form__submit">
+			<%= form.submit "Add Activity", class: "button button--slim" %>
+		</div>
+	<% end %>
 </div>

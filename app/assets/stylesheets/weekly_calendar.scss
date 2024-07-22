@@ -11,8 +11,6 @@
   	grid-template-columns: repeat(7, 1fr);
   	grid-template-rows: 1fr 3rem;
   	height: 16rem;
-  	border: 1px solid $color-gray;
-  	border-radius: 10px;
   	margin: 2rem 0;
 
 		&--current {
@@ -111,9 +109,7 @@
 			flex: 1;
 		}
 
-		&:hover,
-		&:active {
-			cursor: pointer;
+		&:hover {
 			border: 1px dotted $color-gray;
 		}
 	}

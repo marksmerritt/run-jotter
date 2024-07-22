@@ -11,7 +11,7 @@ class App::ActivitiesController < App::BaseController
 			if @activity.save
 				format.turbo_stream
 			else
-				format.html { render status: :unprocessable_entity }
+				format.html { render :new, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -19,6 +19,6 @@ class App::ActivitiesController < App::BaseController
 	private
 
 	def activity_params
-		params.require(:activity).permit(:name)
+		params.require(:activity).permit(:starts_at, :title)
 	end
 end
