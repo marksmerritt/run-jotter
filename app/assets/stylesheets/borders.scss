@@ -1,0 +1,14 @@
+$border-radius: 10px;
+
+.border {
+	border: 1px solid $color-black;
+	border-radius: $border-radius;
+
+	&--thick {
+		border-width: 2px;
+	}
+
+	&--blue {
+		border-color: $color-blue;
+	}
+}

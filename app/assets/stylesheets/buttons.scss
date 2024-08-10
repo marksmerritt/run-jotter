@@ -1,0 +1,13 @@
+.button {
+	text-decoration: none;
+	border-radius: 1000px;
+
+	&--blue {
+		background-color: $color-blue;
+		color: $color-white;
+	}
+
+	&--md {
+		padding: .7rem 1.3rem;
+	}
+}

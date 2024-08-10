@@ -1,0 +1,20 @@
+<nav class="top-nav">
+	<div class="flex flex--align-center">
+		<div class="top-nav__logo-box">
+			<%= svg_tag "logo", class: "icon icon--md" %>
+		</div>
+		<span class="text--bold ml-tight">RunJotter</span>
+	</div>
+
+	<div class="flex flex--align-center">
+		<%= link_to root_path, class: "mr-2", style: "margin-top: .2rem;" do %>
+			<%= svg_tag "notifications", class: "icon icon--sm icon--gray", alt: "Notifications bell" %>
+		<% end %>
+
+		<%= link_to root_path do %>
+			<div class="image image--avatar image--rounded">
+				<%= image_tag "avatar_placeholder_1.jpg", alt: "User avatar" %>
+			</div>
+		<% end %>
+	</div>
+</nav>

@@ -1,0 +1,63 @@
+<div class="bottom-nav">
+	<div class="bottom-nav--left">
+		<%= yield :bottom_nav_left %>
+	</div>
+
+	<div class="bottom-nav--center">
+		<div data-controller="popup" data-popup-hide-class="hidden" data-popup-strategy-value="fixed">
+			<div class="bottom-nav__quick-actions-container">
+				<div class="bottom-nav__quick-actions-pulse">
+					<%= link_to "#", class: "bottom-nav__quick-actions-button", data: { popup_target: "button", action: "popup#toggle" } do %>
+						<%= svg_tag "logo", class: "bottom-nav__quick-actions-icon" %>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="popup-backdrop hidden" data-popup-target="backdrop" data-action="click->popup#close"></div>
+
+			<div class="popup-content hidden" data-popup-target="popupContainer">
+				<div class="popup__arrow" data-popper-arrow></div>
+
+				<div data-popup-target="popupContent" class="bottom-nav__quick-actions-popup">
+					<div class="bottom-nav__quick-action-link-wrapper">
+						<%= link_to "#", class: "bottom-nav__quick-action-link" do %>
+							<%= svg_tag "calendar", class: "bottom-nav__quick-action-icon" %>
+							<span class="bottom-nav__quick-action-text">Calendar</span>
+						<% end %>
+					</div>
+
+					<div class="bottom-nav__quick-action-link-wrapper">
+						<%= link_to "#", class: "bottom-nav__quick-action-link" do %>
+							<%= svg_tag "analytics", class: "bottom-nav__quick-action-icon" %>
+							<span class="bottom-nav__quick-action-text">Review Performance</span>
+						<% end %>
+					</div>
+
+					<div class="bottom-nav__quick-action-link-wrapper">
+						<%= link_to "#", class: "bottom-nav__quick-action-link" do %>
+							<%= svg_tag "steps", class: "bottom-nav__quick-action-icon" %>
+							<span class="bottom-nav__quick-action-text">Locker Room</span>
+						<% end %>
+					</div>
+
+					<div class="bottom-nav__quick-action-link-wrapper">
+						<%= link_to "#", class: "bottom-nav__quick-action-link" do %>
+							<%= svg_tag "groups", class: "bottom-nav__quick-action-icon" %>
+							<span class="bottom-nav__quick-action-text">Teams & Groups</span>
+						<% end %>
+					</div>
+
+					<div class="bottom-nav__quick-action-link-wrapper">
+						<%= link_to "#", class: "bottom-nav__quick-action-link" do %>
+							<%= svg_tag "social-leaderboard", class: "bottom-nav__quick-action-icon" %>
+							<span class="bottom-nav__quick-action-text">Leaderboard</span>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="bottom-nav--right">
+	</div>
+</div>

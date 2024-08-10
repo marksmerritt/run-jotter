@@ -1,0 +1,18 @@
+<div data-controller="weekly-calendar"
+     data-weekly-calendar-flash-class="weekly-calendar__day--flash"
+     data-weekly-calendar-url-value="<%= weekly_calendar_url %>">
+
+  <div id="upCursor" data-weekly-calendar-target="upCursor"></div>
+
+  <div class="weekly-calendar" id="calendar-weeks">
+  	<%= render "app/calendars/weekly/week_group", dates: (@start_date.to_date..@end_date.to_date).to_a,
+  	                                              selected_day: @selected_day,
+  	                                              activities: @activities %>
+  </div>
+
+  <div id="downCursor" data-weekly-calendar-target="downCursor"></div>
+</div>
+
+<%= content_for :botton_nav_left do %>
+  <%= render "app/calendars/weekly/actions/bottom_left_nav" %>
+<% end %>

@@ -1,0 +1,116 @@
+.weekly-calendar {
+	width: 100%;
+  padding: 1.5rem;
+
+	&__week-group {
+		scroll-margin: 4rem;
+	}
+
+	&__week {
+		display: grid;
+  	grid-template-columns: repeat(7, 1fr);
+  	grid-template-rows: 1fr 3rem;
+  	height: 16rem;
+  	margin: 2rem 0;
+
+		&--current {
+			border: 4px solid $color-black;
+		}
+	}
+
+	&__week-stats {
+		background-color: $color-gray-light;
+  	grid-column: 1 / -1;
+  	overflow: hidden;
+  	border-radius: 10px;
+	}
+
+	&__day {
+		position: relative;
+  	border-bottom: 1px solid $color-gray;
+  	border-right: 1px solid $color-gray;
+  	display: flex;
+  	flex-direction: column;
+
+		&--today {
+			.weekly-calendar__day-of-month {
+				border: 2px solid $color-black;
+				border-radius: 50%;
+				padding: .3rem;
+			}
+		}
+
+		&--flash {
+			animation: flash 3s;
+		}
+
+		&:nth-last-child(2) {
+  		border-right: none;
+		}
+	}
+
+	&__month-label {
+		position: absolute;
+	  display: inline-block;
+	  top: 10px;
+	  left: 2px;
+	  writing-mode: vertical-rl;
+	  transform: rotate(-180deg);
+	  color: $color-gray;
+	  font-size: 1rem;
+	  font-weight: 500;
+	  text-transform: uppercase
+	}
+
+	&__year {
+		margin-top: .2rem;
+	}
+
+	&__day-label {
+	  display: flex;
+	  align-items: center;
+	  justify-content: flex-end;
+	}
+
+	&__day-of-week {
+		text-transform: uppercase;
+	  color: $color-gray-dark;
+	  font-size: .7rem;
+	  margin-right: .3rem;
+	  margin-top: .2rem;
+	}
+
+	&__day-of-month {
+		position: relative;
+		font-weight: 600;
+  	font-size: 1rem;
+  	display: flex;
+  	align-items: center;
+  	width: 2rem;
+  	height: 2rem;
+  	justify-content: center;
+	}
+
+	&__activities {
+		flex: 1;
+		padding: .3rem;
+
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__add-activity-button {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+
+		a {
+			display: block;
+			flex: 1;
+		}
+
+		&:hover {
+			border: 1px dotted $color-gray;
+		}
+	}
+}

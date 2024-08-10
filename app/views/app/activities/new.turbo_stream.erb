@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "activity_form_for_#{@selected_day}" do %>
+	<%= render "app/activities/form", activity: @activity, selected_day: @selected_day %>
+<% end %>

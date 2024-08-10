@@ -28,5 +28,12 @@ Rails.application.routes.draw do
     resource :dashboard, controller: "dashboard"
     get :profile, to: "profiles#edit"
     patch :profile, to: "profiles#update"
+
+    namespace :calendars, as: "" do
+      get :weekly, to: "weekly#show", as: :weekly_calendar
+      get :daily, to: "weekly#show", as: :daily_calendar
+    end
+
+    resources :activities
   end
 end

@@ -1,0 +1,22 @@
+.icon {
+	stroke-width: 10px;
+
+  &--sm {
+  	width: 1.7rem;
+  	height: 1.7rem;
+  }
+
+	&--md {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+
+	&--lg {
+		width: 4rem;
+		height: 4rem;
+	}
+
+	&--gray {
+		fill: $color-gray;
+	}
+}
